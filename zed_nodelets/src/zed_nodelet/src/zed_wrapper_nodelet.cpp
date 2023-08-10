@@ -3184,10 +3184,13 @@ void ZEDWrapperNodelet::device_poll_thread_func()
     mCamWidth = mZed.getCameraInformation().camera_configuration.resolution.width;
     mCamHeight = mZed.getCameraInformation().camera_configuration.resolution.height;
     NODELET_DEBUG_STREAM("Camera Frame size : " << mCamWidth << "x" << mCamHeight);
+    std::cout << "[X_DEBUG] Camera Frame size : " << mCamWidth << "x" << mCamHeight << std::endl;
     int v_w = static_cast<int>(mCamWidth * mCamImageResizeFactor);
     int v_h = static_cast<int>(mCamHeight * mCamImageResizeFactor);
     mMatResolVideo = sl::Resolution(v_w, v_h);
     NODELET_DEBUG_STREAM("Image Mat size : " << mMatResolVideo.width << "x" << mMatResolVideo.height);
+    std::cout << "[X_DEBUG] mCamImageResizeFactor : " << mCamImageResizeFactor << std::endl;
+    std::cout << "[X_DEBUG] Image Mat size : " << mMatResolVideo.width << "x" << mMatResolVideo.height << std::endl;
     int d_w = static_cast<int>(mCamWidth * mCamDepthResizeFactor);
     int d_h = static_cast<int>(mCamHeight * mCamDepthResizeFactor);
     mMatResolDepth = sl::Resolution(d_w, d_h);
